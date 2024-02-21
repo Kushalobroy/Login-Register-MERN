@@ -48,6 +48,7 @@ function App() {
           <Col md={{ span: 12, offset: 0 }}>
             <Routes>
             <Route path="/register" element={<Register />} />
+            
               <Route path="/" element={
                 isLoggedIn ? (
                   <Navigate to="/dashboard" />
