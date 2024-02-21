@@ -12,3 +12,7 @@ It is an basic login and registration system in MERN technologies.
 ## Dashboard
 ![image](https://github.com/Kushalobroy/Login-Register-MERN/assets/92447922/4e2c3a3b-6beb-4d49-b081-76ea7091bb89)
 
+## Database
+![image](https://github.com/Kushalobroy/Login-Register-MERN/assets/92447922/b3027a54-cbb6-49c5-8857-6493f8a40fb0)
+
+
