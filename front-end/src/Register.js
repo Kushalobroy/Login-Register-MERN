@@ -16,10 +16,10 @@ const Register = ({ setLoggedIn }) => {
   // Function for handling registration
   const handleRegister = async () => {
     try {
-      await axios.post('http://localhost:5000/api/register', { name, dob, email, password });
-      toast.success('Registration successful');
+      const response = await axios.post('http://localhost:5000/api/register', { name, dob, email, password });
+      toast.success(response.data.message);
     } catch (error) {
-      toast.error('Registration failed');
+      toast.error(error.response.data.error);
     }
   };
 

@@ -7,6 +7,8 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import axios from 'axios';
 import Dashboard from './Dashboard';
 import Register from './Register';
+import ForgotPassword from './ForgotPassword';
+import ResetPassword from './ResetPassword';
 
 function App() {
   const [name, setName] = useState('');
@@ -23,6 +25,7 @@ function App() {
   const handleLogout = () => {
     localStorage.removeItem('token');
     setLoggedIn(false);
+    toast.success('Logout Successfully !');
   };
  
 
@@ -32,9 +35,9 @@ function App() {
       const token = response.data.token;
       localStorage.setItem('token', token);
       setLoggedIn(true);
-      toast.success('Login successful. Token: ' + token);
+      toast.success(response.data.message);
     } catch (error) {
-      toast.error('Login failed');
+      toast.error(error.response.data.error);
     }
   };
 
@@ -48,7 +51,9 @@ function App() {
           <Col md={{ span: 12, offset: 0 }}>
             <Routes>
             <Route path="/register" element={<Register />} />
-            
+            <Route path="/forgot-password" element={<ForgotPassword />} />
+         
+            <Route path="/reset-password/:token" element={<ResetPassword />} />
               <Route path="/" element={
                 isLoggedIn ? (
                   <Navigate to="/dashboard" />
@@ -106,7 +111,9 @@ function App() {
               <Link to="/register" className="link-secondary text-decoration-none">
   Create new account
 </Link>
-                <a href="#!" class="link-secondary text-decoration-none">Forgot password</a>
+<Link to="/forgot-password" className="link-secondary text-decoration-none">
+Forgot password
+</Link>
               </div>
             </div>
           </div>
